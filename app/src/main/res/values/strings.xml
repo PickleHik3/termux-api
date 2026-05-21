@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!DOCTYPE resources [
-    <!ENTITY TERMUX_PACKAGE_NAME "com.termux">
-    <!ENTITY TERMUX_APP_NAME "Termux">
-    <!ENTITY TERMUX_API_APP_NAME "Termux:API">
-    <!ENTITY TERMUX_PREFIX_DIR_PATH "/data/data/com.termux/files/usr">
+    <!ENTITY TERMUX_PACKAGE_NAME "com.termux.launcher.dev">
+    <!ENTITY TERMUX_APP_NAME "Termux:Monet Dev">
+    <!ENTITY TERMUX_API_APP_NAME "Termux:API Dev">
+    <!ENTITY TERMUX_PREFIX_DIR_PATH "/data/data/com.termux.launcher.dev/files/usr">
     ]>
 
 <resources>
