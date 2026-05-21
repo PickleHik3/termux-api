@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - dev
   pull_request:
     branches:
       - master
@@ -17,6 +18,13 @@ jobs:
     steps:
       - name: Clone repository
         uses: actions/checkout@v4
+
+      - name: Publish dev Termux shared libraries
+        shell: bash
+        run: |
+          git clone --depth 1 --branch dev "https://github.com/${GITHUB_REPOSITORY_OWNER}/termux-launcher.git" ../termux-launcher-dev
+          cd ../termux-launcher-dev
+          ./gradlew publishToMavenLocal
 
       - name: Build
         shell: bash {0}
