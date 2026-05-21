@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.termux.launcher.dev.api"
-        minSdk project.properties.minSdkVersion.toInteger()
+        minSdk 26
         targetSdk project.properties.targetSdkVersion.toInteger()
         versionCode 1002
         versionName "0.53.0"
