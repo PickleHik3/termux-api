@@ -1,9 +1,1 @@
 include ':app'
-
-// Use launcher's local termux-shared (com.termux.launcher variant) instead of jitpack.
-// This gives the API plugin the correct TERMUX_PACKAGE_NAME = "com.termux.launcher".
-includeBuild('../termux-launcher') {
-    dependencySubstitution {
-        substitute module('com.termux.launcher:termux-shared:0.118.0') using project(':termux-shared')
-    }
-}
