@@ -8,8 +8,8 @@ android {
     def apkVersionTag = System.getenv("TERMUX_API_APP__BUILD__APK_VERSION_TAG") ?: ""
 
     defaultConfig {
-        applicationId "com.termux.launcher.api"
-        minSdk project.properties.minSdkVersion.toInteger()
+        applicationId "com.termux.launcher.dev.api"
+        minSdk 26
         targetSdk project.properties.targetSdkVersion.toInteger()
         versionCode 1002
         versionName "0.53.0"
@@ -17,9 +17,9 @@ android {
         if (appVersionName) versionName = appVersionName
         validateVersionName(versionName)
 
-        manifestPlaceholders.TERMUX_PACKAGE_NAME = "com.termux.launcher"
-        manifestPlaceholders.TERMUX_APP_NAME = "Termux Launcher"
-        manifestPlaceholders.TERMUX_API_APP_NAME = "TL:API"
+        manifestPlaceholders.TERMUX_PACKAGE_NAME = "com.termux.launcher.dev"
+        manifestPlaceholders.TERMUX_APP_NAME = "Termux:Monet Dev"
+        manifestPlaceholders.TERMUX_API_APP_NAME = "Termux:API Dev"
     }
 
     signingConfigs {
@@ -73,8 +73,11 @@ dependencies {
     implementation "androidx.media:media:1.7.0"
     implementation "androidx.preference:preference:1.2.1"
 
-    // Provided via composite build from ../termux-launcher (see settings.gradle)
-    implementation "com.termux.launcher:termux-shared:0.118.0"
+    implementation "com.termux:termux-shared:0.118.0"
+    // Use if below libraries are published locally by termux-app with `./gradlew publishReleasePublicationToMavenLocal` and used with `mavenLocal()`.
+    // If updates are done, republish there and sync project with gradle files here
+    // https://github.com/termux/termux-app/wiki/Termux-Libraries
+    //implementation "com.termux:termux-shared:0.118.0"
 
     implementation "com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava"
 }
