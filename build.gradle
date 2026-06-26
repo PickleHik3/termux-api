@@ -12,8 +12,17 @@ allprojects {
     repositories {
         google()
         mavenCentral()
-        //mavenLocal()
         maven { url "https://jitpack.io" }
+        exclusiveContent {
+            forRepository {
+                maven {
+                    url "https://raw.githubusercontent.com/PickleHik3/termux-launcher/403d2bec7fd8cb2436fe9f22180d00a8ca629ff2/maven/"
+                }
+            }
+            filter {
+                includeGroup "com.termux"
+            }
+        }
     }
 }
 
