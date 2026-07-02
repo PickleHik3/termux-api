@@ -3,4 +3,7 @@
     <color name="black_overlay">#66000000</color>
     <color name="termux_scrollbar">#66FFFFFF</color>
 
+    <!-- Adaptive app-icon background; keep in sync with the launcher's icon_accent_bg. -->
+    <color name="icon_accent_bg">#E1E7F2</color>
+
 </resources>

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:height="108dp"
     android:width="108dp"
@@ -5,30 +6,38 @@
     android:viewportHeight="108">
 
     <path
-        android:fillColor="#000000"
+        android:fillColor="#202837"
         android:pathData="M18,54
                           A36,36 0 1,1 90,54
                           A36,36 0 1,1 18,54 Z" />
 
-    <!-- Keep in sync with adaptive ic_foreground.xml: -->
-    <path
-        android:fillColor="#FFFFFF"
-        android:pathData="M34,38
-                          h6
-                          l12,16
-                          l-12,16
-                          h-6
-                          l12,-16
-                          "
-        />
+    <!-- Keep in sync with adaptive ic_foreground.xml. Solid mid-gradient color
+         because pre-API-24 launchers cannot render vector gradients. -->
+    <group
+        android:pivotX="54"
+        android:pivotY="54"
+        android:scaleX="0.44"
+        android:scaleY="0.44">
 
-    <path
-        android:fillColor="#FFFFFF"
-        android:pathData="M56,66
-                          h18
-                          v4
-                          h-18
-                          "
-        />
+        <!-- left brace -->
+        <path
+            android:pathData="M44,16 C35,16 36.5,25 36.5,33 C36.5,43.5 32,49.5 25.5,53 C32,56.5 36.5,62.5 36.5,73 C36.5,81 35,90 44,90"
+            android:strokeColor="#0CD5B9"
+            android:strokeWidth="7.5"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round" />
 
+        <!-- right brace -->
+        <path
+            android:pathData="M64,16 C73,16 71.5,25 71.5,33 C71.5,43.5 76,49.5 82.5,53 C76,56.5 71.5,62.5 71.5,73 C71.5,81 73,90 64,90"
+            android:strokeColor="#0CD5B9"
+            android:strokeWidth="7.5"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round" />
+
+        <!-- center dot -->
+        <path
+            android:pathData="M48.4,53 a5.6,5.6 0 1 0 11.2,0 a5.6,5.6 0 1 0 -11.2,0 Z"
+            android:fillColor="#0CD5B9" />
+    </group>
 </vector>
