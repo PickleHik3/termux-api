@@ -1,28 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:height="108dp"
+    xmlns:aapt="http://schemas.android.com/aapt"
     android:width="108dp"
+    android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
 
-    <!-- Keep in sync with non-adaptive ic_launcher.xml -->
-    <path
-        android:fillColor="#FFFFFF"
-        android:pathData="M34,38
-                          h6
-                          l12,16
-                          l-12,16
-                          h-6
-                          l12,-16
-                          "
-        />
+    <!-- Adaptive foreground: Termux:API companion mark — curly braces with a
+         center dot, in the launcher's gradient stroke language. Keep the mark
+         inside the ~66dp safe zone so no mask (circle/squircle/rounded) clips
+         the braces. The art is authored full-bleed in a 108 viewport, so scale
+         it down about center. Keep in sync with non-adaptive ic_launcher.xml. -->
+    <group
+        android:name="mark"
+        android:pivotX="54"
+        android:pivotY="54"
+        android:scaleX="0.56"
+        android:scaleY="0.56">
 
-    <path
-        android:fillColor="#FFFFFF"
-        android:pathData="M56,66
-                          h18
-                          v4
-                          h-18
-                          "
-        />
+        <!-- left brace -->
+        <path
+            android:pathData="M44,16 C35,16 36.5,25 36.5,33 C36.5,43.5 32,49.5 25.5,53 C32,56.5 36.5,62.5 36.5,73 C36.5,81 35,90 44,90"
+            android:strokeWidth="7.5"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round">
+            <aapt:attr name="android:strokeColor">
+                <gradient
+                    android:type="linear"
+                    android:startX="20" android:startY="18"
+                    android:endX="88" android:endY="88">
+                    <item android:offset="0" android:color="#13C8F5" />
+                    <item android:offset="1" android:color="#05E27C" />
+                </gradient>
+            </aapt:attr>
+        </path>
 
+        <!-- right brace -->
+        <path
+            android:pathData="M64,16 C73,16 71.5,25 71.5,33 C71.5,43.5 76,49.5 82.5,53 C76,56.5 71.5,62.5 71.5,73 C71.5,81 73,90 64,90"
+            android:strokeWidth="7.5"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round">
+            <aapt:attr name="android:strokeColor">
+                <gradient
+                    android:type="linear"
+                    android:startX="20" android:startY="18"
+                    android:endX="88" android:endY="88">
+                    <item android:offset="0" android:color="#13C8F5" />
+                    <item android:offset="1" android:color="#05E27C" />
+                </gradient>
+            </aapt:attr>
+        </path>
+
+        <!-- center dot -->
+        <path
+            android:pathData="M48.4,53 a5.6,5.6 0 1 0 11.2,0 a5.6,5.6 0 1 0 -11.2,0 Z">
+            <aapt:attr name="android:fillColor">
+                <gradient
+                    android:type="linear"
+                    android:startX="20" android:startY="18"
+                    android:endX="88" android:endY="88">
+                    <item android:offset="0" android:color="#13C8F5" />
+                    <item android:offset="1" android:color="#05E27C" />
+                </gradient>
+            </aapt:attr>
+        </path>
+    </group>
 </vector>
