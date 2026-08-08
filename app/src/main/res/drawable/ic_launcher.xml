@@ -1,34 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pre-adaptive fallback: solid-color rendition of the launcher mark
+     (VectorDrawable gradients need API 24, adaptive icons take over at 26). -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:height="108dp"
-    android:width="108dp"
+    android:width="48dp"
+    android:height="48dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
-
     <path
-        android:fillColor="#000000"
-        android:pathData="M18,54
-                          A36,36 0 1,1 90,54
-                          A36,36 0 1,1 18,54 Z" />
-
-    <!-- Keep in sync with adaptive ic_foreground.xml: -->
-    <path
-        android:fillColor="#FFFFFF"
-        android:pathData="M34,38
-                          h6
-                          l12,16
-                          l-12,16
-                          h-6
-                          l12,-16
-                          "
-        />
-
-    <path
-        android:fillColor="#FFFFFF"
-        android:pathData="M56,66
-                          h18
-                          v4
-                          h-18
-                          "
-        />
-
+        android:pathData="M54,54m-52,0a52,52 0,1 1,104 0a52,52 0,1 1,-104 0"
+        android:fillColor="#E1E7F2"/>
+    <group
+        android:pivotX="54"
+        android:pivotY="54"
+        android:scaleX="0.56"
+        android:scaleY="0.56">
+        <path
+            android:pathData="M20.8,17.9 L40.7,42.2 L20.8,63.5"
+            android:strokeColor="#0CD5B9"
+            android:strokeWidth="7.5"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round"/>
+        <path
+            android:pathData="M53,31 L87.3,66.4 L87.3,88.2 L19.8,88.2"
+            android:strokeColor="#0CD5B9"
+            android:strokeWidth="7.5"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round"/>
+        <path
+            android:pathData="M70.2,88.2 L70.2,75.9"
+            android:strokeColor="#0CD5B9"
+            android:strokeWidth="7.5"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round"/>
+    </group>
 </vector>

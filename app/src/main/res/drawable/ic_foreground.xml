@@ -1,28 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:height="108dp"
+    xmlns:aapt="http://schemas.android.com/aapt"
     android:width="108dp"
+    android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
 
-    <!-- Keep in sync with non-adaptive ic_launcher.xml -->
-    <path
-        android:fillColor="#FFFFFF"
-        android:pathData="M34,38
-                          h6
-                          l12,16
-                          l-12,16
-                          h-6
-                          l12,-16
-                          "
-        />
+    <!-- Adaptive foreground: keep the mark inside the ~66dp safe zone so no
+         mask (circle/squircle/rounded) clips the chevron or arrow. The art is
+         authored full-bleed in a 108 viewport, so scale it down about center. -->
+    <group
+        android:name="mark"
+        android:pivotX="54"
+        android:pivotY="54"
+        android:scaleX="0.56"
+        android:scaleY="0.56">
 
-    <path
-        android:fillColor="#FFFFFF"
-        android:pathData="M56,66
-                          h18
-                          v4
-                          h-18
-                          "
-        />
+        <!-- chevron -->
+        <path
+            android:pathData="M20.8,17.9 L40.7,42.2 L20.8,63.5"
+            android:strokeWidth="7.5"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round">
+            <aapt:attr name="android:strokeColor">
+                <gradient
+                    android:type="linear"
+                    android:startX="20" android:startY="18"
+                    android:endX="88" android:endY="88">
+                    <item android:offset="0" android:color="#13C8F5" />
+                    <item android:offset="1" android:color="#05E27C" />
+                </gradient>
+            </aapt:attr>
+        </path>
 
+        <!-- descending arrow + baseline -->
+        <path
+            android:pathData="M53,31 L87.3,66.4 L87.3,88.2 L19.8,88.2"
+            android:strokeWidth="7.5"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round">
+            <aapt:attr name="android:strokeColor">
+                <gradient
+                    android:type="linear"
+                    android:startX="20" android:startY="18"
+                    android:endX="88" android:endY="88">
+                    <item android:offset="0" android:color="#13C8F5" />
+                    <item android:offset="1" android:color="#05E27C" />
+                </gradient>
+            </aapt:attr>
+        </path>
+
+        <!-- foot -->
+        <path
+            android:pathData="M70.2,88.2 L70.2,75.9"
+            android:strokeWidth="7.5"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round">
+            <aapt:attr name="android:strokeColor">
+                <gradient
+                    android:type="linear"
+                    android:startX="20" android:startY="18"
+                    android:endX="88" android:endY="88">
+                    <item android:offset="0" android:color="#13C8F5" />
+                    <item android:offset="1" android:color="#05E27C" />
+                </gradient>
+            </aapt:attr>
+        </path>
+    </group>
 </vector>

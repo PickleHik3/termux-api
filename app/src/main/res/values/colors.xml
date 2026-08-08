@@ -3,4 +3,5 @@
     <color name="black_overlay">#66000000</color>
     <color name="termux_scrollbar">#66FFFFFF</color>
 
+    <color name="icon_accent_bg">#E1E7F2</color>
 </resources>
