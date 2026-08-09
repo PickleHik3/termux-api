@@ -1,10 +1,15 @@
 package com.termux.api;
 
 import com.termux.shared.termux.TermuxConstants;
-import static com.termux.shared.termux.TermuxConstants.TERMUX_API_APP_CODE_PACKAGE_NAME;
 import static com.termux.shared.termux.TermuxConstants.TERMUX_PACKAGE_NAME;
 
 public class TermuxAPIConstants {
+
+    /**
+     * The java code package of this app, independent of the applicationId (the launcher's
+     * termux-shared has no TERMUX_API_APP_CODE_PACKAGE_NAME constant).
+     */
+    public static final String TERMUX_API_APP_CODE_PACKAGE_NAME = "com.termux.api";
 
     /**
      * Termux:API Receiver name.

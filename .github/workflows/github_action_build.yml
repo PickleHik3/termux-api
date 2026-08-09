@@ -3,13 +3,7 @@ name: GitHub Action Build
 on:
   push:
     branches:
-      - master
-      - dev
-  pull_request:
-    branches:
-      - master
-  schedule:
-    - cron: "15 0 1 */2 *"
+      - nix-pkg
   workflow_dispatch:
 
 jobs:
@@ -19,12 +13,16 @@ jobs:
       - name: Clone repository
         uses: actions/checkout@v4
 
-      - name: Publish dev Termux shared libraries
+      - name: Setup java 21
+        uses: actions/setup-java@v5
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Clone nix-edition launcher for the composite termux-shared build
         shell: bash
         run: |
-          git clone --depth 1 --branch dev "https://github.com/${GITHUB_REPOSITORY_OWNER}/termux-launcher.git" ../termux-launcher-dev
-          cd ../termux-launcher-dev
-          ./gradlew publishToMavenLocal
+          git clone --depth 1 --branch nix-edition "https://github.com/${GITHUB_REPOSITORY_OWNER}/termux-launcher.git" ../termux-launcher
 
       - name: Build
         shell: bash {0}
@@ -32,10 +30,6 @@ jobs:
           exit_on_error() { echo "$1"; exit 1; }
 
           echo "Setting vars"
-
-          if [ "$GITHUB_EVENT_NAME" == "pull_request" ]; then
-              GITHUB_SHA="${{ github.event.pull_request.head.sha }}" # Do not use last merge commit set in GITHUB_SHA
-          fi
 
           # Set RELEASE_VERSION_NAME to "<CURRENT_VERSION_NAME>+<last_commit_hash>"
           CURRENT_VERSION_NAME_REGEX='\s+versionName "([^"]+)"$'
@@ -47,7 +41,7 @@ jobs:
 
           APK_DIR_PATH="./app/build/outputs/apk/debug"
           APK_VERSION_TAG="$RELEASE_VERSION_NAME.github.debug" # Note the ".", GITHUB_SHA will already have "+" before it
-          APK_BASENAME_PREFIX="termux-api-app_$APK_VERSION_TAG"
+          APK_BASENAME_PREFIX="termux-api-nix-app_$APK_VERSION_TAG"
 
           # Used by upload step later
           echo "APK_DIR_PATH=$APK_DIR_PATH" >> $GITHUB_ENV
