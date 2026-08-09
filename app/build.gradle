@@ -8,7 +8,7 @@ android {
     def apkVersionTag = System.getenv("TERMUX_API_APP__BUILD__APK_VERSION_TAG") ?: ""
 
     defaultConfig {
-        applicationId "com.termux.launcher.api"
+        applicationId "com.termux.launcher.nix.api"
         minSdk project.properties.minSdkVersion.toInteger()
         targetSdk project.properties.targetSdkVersion.toInteger()
         versionCode 1002
@@ -17,9 +17,9 @@ android {
         if (appVersionName) versionName = appVersionName
         validateVersionName(versionName)
 
-        manifestPlaceholders.TERMUX_PACKAGE_NAME = "com.termux.launcher"
-        manifestPlaceholders.TERMUX_APP_NAME = "Termux Launcher"
-        manifestPlaceholders.TERMUX_API_APP_NAME = "TL:API"
+        manifestPlaceholders.TERMUX_PACKAGE_NAME = "com.termux.launcher.nix"
+        manifestPlaceholders.TERMUX_APP_NAME = "Termux Launcher Nix"
+        manifestPlaceholders.TERMUX_API_APP_NAME = "TLNix:API"
     }
 
     signingConfigs {
@@ -53,7 +53,7 @@ android {
 
     applicationVariants.all { variant ->
         variant.outputs.all { output ->
-            outputFileName = new File("termux-api-app_" +
+            outputFileName = new File("termux-api-nix-app_" +
                     (apkVersionTag ? apkVersionTag : "v" + versionName + "+" + variant.buildType.name) + ".apk")
         }
     }
