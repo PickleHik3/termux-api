@@ -11,8 +11,8 @@ android {
         applicationId "io.vaj.tl.api"
         minSdk project.properties.minSdkVersion.toInteger()
         targetSdk project.properties.targetSdkVersion.toInteger()
-        versionCode 1002
-        versionName "0.53.0"
+        versionCode 1003
+        versionName "0.53.2"
 
         if (appVersionName) versionName = appVersionName
         validateVersionName(versionName)
@@ -36,6 +36,11 @@ android {
             minifyEnabled true
             shrinkResources false // Reproducible builds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            // Published builds are this type: not debuggable (no run-as into the shared uid's
+            // files, no JDWP), signed with the same shared test key as the launcher's releases so
+            // the sharedUserId pairing and in-place updates keep working.
+            debuggable false
+            signingConfig signingConfigs.debug
         }
 
         debug {
