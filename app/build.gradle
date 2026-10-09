@@ -36,6 +36,11 @@ android {
             minifyEnabled true
             shrinkResources false // Reproducible builds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            // Published builds are this type: not debuggable (no run-as into the shared uid's
+            // files, no JDWP), signed with the same shared test key as the launcher's releases so
+            // the sharedUserId pairing and in-place updates keep working.
+            debuggable false
+            signingConfig signingConfigs.debug
         }
 
         debug {
