@@ -34,18 +34,25 @@ jobs:
         shell: bash
         run: |
           set -e
-          APK_DIR_PATH="./app/build/outputs/apk/debug"
-          APK_VERSION_TAG="${RELEASE_TAG}+github.debug"
+          # The release build type: not debuggable, signed with the shared test key (app/build.gradle).
+          APK_DIR_PATH="./app/build/outputs/apk/release"
+          APK_VERSION_TAG="${RELEASE_TAG}+github.release"
           APK_BASENAME_PREFIX="termux-api-nix-app_$APK_VERSION_TAG"
 
           export TERMUX_API_APP__BUILD__APK_VERSION_TAG="$APK_VERSION_TAG"
-          ./gradlew assembleDebug
+          ./gradlew assembleRelease
 
           test -f "$APK_DIR_PATH/${APK_BASENAME_PREFIX}.apk"
+          AAPT2="$(find "$ANDROID_HOME/build-tools" -name aapt2 | sort -V | tail -n 1)"
+          test -n "$AAPT2"
+          if "$AAPT2" dump badging "$APK_DIR_PATH/${APK_BASENAME_PREFIX}.apk" | grep -q application-debuggable; then
+            echo "Built APK is debuggable: ${APK_BASENAME_PREFIX}.apk" >&2
+            exit 1
+          fi
           (cd "$APK_DIR_PATH"; sha256sum "${APK_BASENAME_PREFIX}.apk" > checksums-sha256.txt)
 
           gh release create "$RELEASE_TAG" \
             --title "$RELEASE_TAG" \
-            --notes "Termux:API for the Termux Launcher Nix edition (com.termux.launcher.nix.api). Debug-signed with the shared testkey — installs alongside the nix-edition launcher." \
+            --notes "Termux:API for the Termux Launcher Nix edition (com.termux.launcher.nix.api). A release build signed with the shared testkey, so it installs beside the nix-edition launcher builds published from PickleHik3/termux-launcher." \
             "$APK_DIR_PATH/${APK_BASENAME_PREFIX}.apk" \
             "$APK_DIR_PATH/checksums-sha256.txt"

@@ -1,5 +1,13 @@
 # Termux API
 
+> **Fork notice — [Termux Launcher](https://github.com/PickleHik3/termux-launcher) companion builds.**
+> This fork publishes Termux:API releases in two editions matching the launcher's editions:
+>
+> - **Termux edition** (`com.termux.api`, plain release tags, e.g. `v0.53.0`) — pairs with the `com.termux` launcher edition.
+> - **VAJ edition** (`io.vaj.tl.api`, `-vaj` release tags, e.g. `v0.53.0-vaj`) — pairs with the `io.vaj.tl` launcher edition and installs alongside official Termux and official Termux:API.
+>
+> Install the release whose tag matches your launcher edition. Add-ons must share the launcher's signing key and package family, so official F-Droid builds will not pair with the launcher.
+
 [![Build status](https://github.com/termux/termux-api/workflows/Build/badge.svg)](https://github.com/termux/termux-api/actions)
 [![Join the chat at https://gitter.im/termux/termux](https://badges.gitter.im/termux/termux.svg)](https://gitter.im/termux/termux)
 

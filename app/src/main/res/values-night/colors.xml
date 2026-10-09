@@ -1,0 +1,6 @@
+<resources>
+
+    <!-- Adaptive app-icon background; keep in sync with the launcher's icon_accent_bg. -->
+    <color name="icon_accent_bg">#202837</color>
+
+</resources>
